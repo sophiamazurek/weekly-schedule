@@ -68,6 +68,16 @@ console.log(currentTime)
      btn.attr("class", "btn btn-outline-secondary");
      btn.attr("type", "button");
      btn.attr("id", timeArray[index]);
+        if(timeArray[index] == 12){
+            timeArray[index]+"PM"
+        }
+        if(timeArray[index]<12){
+            timeArray[index]+"AM"
+        }
+        if(timeArray[index]>12){
+            timeArray[index]-12+"PM"
+        }
+
      btn.text("Submit");
 
      //3. stick it together (parent child)
@@ -86,12 +96,13 @@ console.log(currentTime)
      $(".container").append(d1)
      }
 
+     //saving items to local storage
      $(".btn").click(function(){
         console.log($(this).attr("id"));
-        //set hour to local storage
-        //ls hour = userinput
-        //userinput ="blah";
-        localStorage.setItem($(this).attr("id"), JSON.stringify("blah"));
+        // set hour to local storage
+        // ls hour = userinput
+        // userinput ="";
+        localStorage.setItem($(this).attr("id"), JSON.stringify("userinput"));
         
       });
 
