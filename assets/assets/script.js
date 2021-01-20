@@ -47,11 +47,11 @@ console.log(currentTime)
      d1.attr("class","input-group");
      d2.attr("class","input-group-prepend");
      span1.attr("class", "input-group-text");
-     span1.text(timeArray[index]);
        //update the blocks ... when do we know it is present   
         //timeArray[index] == currentTime
         if(timeArray[index] == currentTime){
             textarea.attr("class", "present form-control "+timeArray[index]);
+
         }
     //when future timeArray[index] currentTime
         ////timeArray[index] > currentTime
@@ -68,14 +68,22 @@ console.log(currentTime)
      btn.attr("class", "btn btn-outline-secondary");
      btn.attr("type", "button");
      btn.attr("id", timeArray[index]);
+
         if(timeArray[index] == 12){
-            timeArray[index]+"PM"
+            
+            
+            span1.text(timeArray[index]+"PM");
+
+
         }
         if(timeArray[index]<12){
-            timeArray[index]+"AM"
+            span1.text(timeArray[index]+"AM");
+
         }
         if(timeArray[index]>12){
-            timeArray[index]-12+"PM"
+          
+            span1.text(timeArray[index]-12+"PM");
+
         }
 
      btn.text("Submit");
@@ -98,11 +106,13 @@ console.log(currentTime)
 
      //saving items to local storage
      $(".btn").click(function(){
+         var userinput=$(this).siblings(".form-control").val();
+         console.log(userinput)
         console.log($(this).attr("id"));
         // set hour to local storage
         // ls hour = userinput
         // userinput ="";
-        localStorage.setItem($(this).attr("id"), JSON.stringify("userinput"));
+        localStorage.setItem($(this).attr("id"), JSON.stringify(userinput));
         
       });
 
@@ -110,7 +120,16 @@ console.log(currentTime)
         console.log(localStorage.getItem("12"));
     
         $(".8").val(localStorage.getItem("8"))
+        $(".9").val(localStorage.getItem("9"))
+        $(".10").val(localStorage.getItem("10"))
+        $(".11").val(localStorage.getItem("11"))
         $(".12").val(localStorage.getItem("12"))
+        $(".13").val(localStorage.getItem("13"))
+        $(".14").val(localStorage.getItem("14"))
+        $(".15").val(localStorage.getItem("15"))
+        $(".16").val(localStorage.getItem("16"))
+        $(".17").val(localStorage.getItem("17"))
+
      }
      getData();
  }
